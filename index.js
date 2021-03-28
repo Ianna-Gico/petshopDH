@@ -1,6 +1,7 @@
 const moment = require('moment');
-
+const fs = require('fs');
 const nomePetshop = "PETSHOP DH";
+bancoDados = require('./bancoDados');
 
 let pets = [
     {
@@ -39,18 +40,18 @@ let pets = [
 ];
 
 const vacinarPet = (pet) => {
-    if (pet.vacinado == false){
+    if (pet.vacinado == false) {
         pet.vacinado = true;
         console.log(`O pet ${pet.nome} foi vacinado com sucesso!`)
-    }else{
+    } else {
         console.log(`Ops! O pet ${pet.nome} já está vacinado!`)
     }
 }
 
 const campanhaVacina = () => {
     var soma = 0;
-    for(let pet of pets){
-        if(pet.vacinado == false){
+    for (let pet of pets) {
+        if (pet.vacinado == false) {
             pet.vacinado == true;
             soma++;
         }
@@ -63,8 +64,9 @@ const adicionarPet = (pet) => {
 }
 
 const listarPets = () => {
-    for(var pet of pets){
-        console.log(`O nome do pet é ${pet.nome} e sua raça é ${pet.raca} (${JSON.stringify(pet.servicos)})`);
+    for (var pet of pets) {
+        var situacao = (pet.vacinado)? 'Vacinado': 'Não vacinado!'  
+        console.log(`${pets.indexOf(pet)}. ${pet.nome}, raça: ${pet.raca}, serviços: ${JSON.stringify(pet.servicos)}, ${situacao}`);
     }
 }
 
@@ -73,6 +75,16 @@ const prestarServico = (pet, servico, data) => {
         servico: servico,
         data: data
     });
+}
+
+const atenderCliente = (pet,servico) =>{
+    console.log(`Olá ${pet.nome}!`)
+    servico(pet);
+    console.log(`Prontinho, ${pet.nome}! Até a próxima!`)
+    let servicosRealizados = pet.servicos;
+    let ultimoServico = servicosRealizados[servicosRealizados.length-1];
+    let ultimaData = ultimoServico.data;
+    console.log(`Serviço prestado em: ${ultimaData}`);
 }
 
 const darBanhoPet = (pet) => {
@@ -89,6 +101,10 @@ const apararUnhasPet = (pet) => {
     prestarServico(pet, 'corte de unhas', moment().format('L'));
     console.log(`${pet.nome} está de unhas aparadas!`);
 }
+
+atenderCliente(pets[1],tosarPet);
+
+
 
 adicionarPet({
     nome: 'Jk',
@@ -108,9 +124,11 @@ listarPets();
 darBanhoPet(pets[2]);
 darBanhoPet(pets[3]);
 listarPets();
-tosarPet(pets[2]);
+/*tosarPet(pets[2]);
 apararUnhasPet(pets[3]);
 listarPets();
-
 prestarServico(pets[0], 'banho', moment().format('L'));
-listarPets();
+listarPets();*/
+//console.log(JSON.stringify(pets[1]));
+//console.log(pets[1]);
+
