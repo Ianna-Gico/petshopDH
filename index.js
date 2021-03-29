@@ -1,7 +1,15 @@
 const moment = require('moment');
-const fs = require('fs');
+let fs = require('fs');
 const nomePetshop = "PETSHOP DH";
-bancoDados = require('./bancoDados');
+let bancoDados = fs.readFileSync('./bancoDados.json');
+
+bancoDados = JSON.parse(bancoDados);
+
+const atualizarBanco = () => {
+    let petsAtualizado = JSON.stringify(bancoDados, null, 2);
+
+    fs.writeFileSync('bancoDados.json', petsAtualizado, 'utf-8');
+}
 
 let pets = [
     {
@@ -50,7 +58,7 @@ const vacinarPet = (pet) => {
 
 const campanhaVacina = () => {
     var soma = 0;
-    for (let pet of pets) {
+    for (let pet of bancoDados.pets) {
         if (pet.vacinado == false) {
             pet.vacinado == true;
             soma++;
@@ -59,14 +67,20 @@ const campanhaVacina = () => {
     console.log(`${soma} pet(s) foi(ram) vacinado(s) nesta campanha!`)
 }
 
-const adicionarPet = (pet) => {
-    pets.push(pet);
+/*const adicionarPet = (pet) => {
+    bancoDados.pets.push(pet);
+}*/
+
+adicionarPet = novoPet =>{
+    bancoDados.pets.push(novoPet);
+    atualizarBanco();
+    console.log(`${novoPet.nome} foi adicionado com sucesso!`)
 }
 
 const listarPets = () => {
-    for (var pet of pets) {
+    for (var pet of bancoDados.pets) {
         var situacao = (pet.vacinado)? 'Vacinado': 'Não vacinado!'  
-        console.log(`${pets.indexOf(pet)}. ${pet.nome}, raça: ${pet.raca}, serviços: ${JSON.stringify(pet.servicos)}, ${situacao}`);
+        console.log(`${bancoDados.pets.indexOf(pet)}. ${pet.nome}, raça: ${pet.raca}, serviços: ${JSON.stringify(pet.servicos)}, ${situacao}`);
     }
 }
 
@@ -102,10 +116,7 @@ const apararUnhasPet = (pet) => {
     console.log(`${pet.nome} está de unhas aparadas!`);
 }
 
-atenderCliente(pets[1],tosarPet);
-
-
-
+/*atenderCliente(bancoDados.pets[1],tosarPet);
 adicionarPet({
     nome: 'Jk',
     tipo: 'cachorro',
@@ -117,18 +128,46 @@ adicionarPet({
     vacinado: false,
     servicos: []
 });
-vacinarPet(pets[0]);
-vacinarPet(pets[1]);
+
+adicionarPet({
+    nome: 'Sansão',
+    tipo: 'cachorro',
+    idade: 5,
+    raca: 'Vira-lata',
+    peso: 3,
+    tutor: 'Doug',
+    contato: '(81) 98145-7456',
+    vacinado: false,
+    servicos: []
+});
+
+adicionarPet({
+    nome: 'Tom',
+    tipo: 'Gato',
+    idade: 5,
+    raca: 'Cinza',
+    peso: 3,
+    tutor: 'Chica',
+    contato: '(81) 94444-4444',
+    vacinado: true,
+    servicos: []
+});
+
+vacinarPet(bancoDados.pets[0]);
+vacinarPet(bancoDados.pets[1]);
 campanhaVacina();
 listarPets();
-darBanhoPet(pets[2]);
-darBanhoPet(pets[3]);
+darBanhoPet(bancoDados.pets[2]);
+darBanhoPet(bancoDados.pets[3]);
 listarPets();
-/*tosarPet(pets[2]);
-apararUnhasPet(pets[3]);
+tosarPet(bancoDados.pets[2]);
+apararUnhasPet(bancoDados.pets[3]);
 listarPets();
-prestarServico(pets[0], 'banho', moment().format('L'));
-listarPets();*/
-//console.log(JSON.stringify(pets[1]));
-//console.log(pets[1]);
+prestarServico(bancoDados.pets[0], 'banho', moment().format('L'));
+listarPets();
+//console.log(JSON.stringify(bancoDados.pets[1]));
+//console.log(bancoDados.pets[1]);*/
 
+//bancoDados.pets = bancoDados.pet.pop();
+
+console.log(bancoDados.pets)
