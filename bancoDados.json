@@ -19,21 +19,8 @@
       "peso": 5,
       "tutor": "Jojô",
       "contato": "(83) 99999-9999",
-      "vacinado": false,
-      "servicos": [
-        {
-          "servico": "tosa",
-          "data": "03/29/2021"
-        },
-        {
-          "servico": "tosa",
-          "data": "03/29/2021"
-        },
-        {
-          "servico": "tosa",
-          "data": "03/29/2021"
-        }
-      ]
+      "vacinado": true,
+      "servicos": []
     },
     {
       "nome": "Yani",
@@ -52,20 +39,9 @@
       "idade": 5,
       "raca": "Vira-lata",
       "peso": 3,
-      "tutor": "Doug",
+      "tutor": "Chica",
       "contato": "(81) 98145-7456",
-      "vacinado": false,
-      "servicos": []
-    },
-    {
-      "nome": "Jk",
-      "tipo": "cachorro",
-      "idade": 5,
-      "raca": "Vira-lata",
-      "peso": 3,
-      "tutor": "Doug",
-      "contato": "(81) 98145-7456",
-      "vacinado": false,
+      "vacinado": true,
       "servicos": []
     },
     {
@@ -74,54 +50,51 @@
       "idade": 5,
       "raca": "Vira-lata",
       "peso": 3,
-      "tutor": "Doug",
+      "tutor": "Chica",
       "contato": "(81) 98145-7456",
-      "vacinado": false,
-      "servicos": []
-    },
-    {
-      "nome": "Jk",
-      "tipo": "cachorro",
-      "idade": 5,
-      "raca": "Vira-lata",
-      "peso": 3,
-      "tutor": "Doug",
-      "contato": "(81) 98145-7456",
-      "vacinado": false,
-      "servicos": []
-    },
-    {
-      "nome": "Sansão",
-      "tipo": "cachorro",
-      "idade": 5,
-      "raca": "Vira-lata",
-      "peso": 3,
-      "tutor": "Doug",
-      "contato": "(81) 98145-7456",
-      "vacinado": false,
-      "servicos": []
-    },
-    {
-      "nome": "Jk",
-      "tipo": "cachorro",
-      "idade": 5,
-      "raca": "Vira-lata",
-      "peso": 3,
-      "tutor": "Doug",
-      "contato": "(81) 98145-7456",
-      "vacinado": false,
-      "servicos": []
-    },
-    {
-      "nome": "Sansão",
-      "tipo": "cachorro",
-      "idade": 5,
-      "raca": "Vira-lata",
-      "peso": 3,
-      "tutor": "Doug",
-      "contato": "(81) 98145-7456",
-      "vacinado": false,
-      "servicos": []
+      "vacinado": true,
+      "servicos": [
+        {
+          "servico": "banho",
+          "data": "03/30/2021"
+        },
+        {
+          "servico": "banho",
+          "data": "03/30/2021"
+        },
+        {
+          "servico": "banho",
+          "data": "03/30/2021"
+        },
+        {
+          "servico": "banho",
+          "data": "03/30/2021"
+        },
+        {
+          "servico": "banho",
+          "data": "03/30/2021"
+        },
+        {
+          "servico": "banho",
+          "data": "03/30/2021"
+        },
+        {
+          "servico": "banho",
+          "data": "03/30/2021"
+        },
+        {
+          "servico": "banho",
+          "data": "03/30/2021"
+        },
+        {
+          "servico": "banho",
+          "data": "03/30/2021"
+        },
+        {
+          "servico": "banho",
+          "data": "03/30/2021"
+        }
+      ]
     },
     {
       "nome": "Tom",
